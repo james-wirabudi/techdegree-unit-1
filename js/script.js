@@ -7,6 +7,7 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
+//randomizes color of body
 function backgroundColor () {
   let red;
   let green;
@@ -16,9 +17,9 @@ function backgroundColor () {
   red = Math.floor(Math.random() * 256);
   green = Math.floor(Math.random() * 256);
   blue = Math.floor(Math.random() * 256);
-  randomRGB = `background color: rgb(${red}, ${green}, ${blue})`;
-  console.log(randomRGB);
-  document.body.style.backgroundColor = randomRGB;
+  randomRGB = `rgb(${red}, ${green}, ${blue})`;
+  //console.log(randomRGB);
+  document.body.style.backgroundColor = randomRGB; //https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
 }
 
 /*** 
@@ -62,7 +63,6 @@ const quotes = [
     tags: "Action/Thriller"*/
   }
 ];
-
 //console.log(quotes);
 
 /***
@@ -72,7 +72,6 @@ function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * quotes.length);
   //returns quote object
   return quotes[randomNum];
-  //return randomNum;
 }
 //console.log(getRandomQuote());
 
@@ -84,24 +83,16 @@ function printQuote() {
   const num = getRandomQuote();
   console.log(num);
 
-  /*const randomQuote = `<p class="quote">${quotes[num].quote}</p>
-                      <p class="source">${quotes[num].source}
-                        <span class="citation">${quotes[num].citation}</span>
-                        <span class="year">${quotes[num].year}</span>
-                      </p>`;*/
-
   let randomQuote = `<p class="quote">${num.quote}</p>
   <p class="source">${num.source}`;
 
   //concatenates citation if object has citation property 
   if (num.citation) {
-    console.log(num.citation);
     randomQuote += `<span class="citation">${num.citation}</span>`;
   }
 
   //concatenates year if object has year property 
   if (num.year) {
-    console.log(num.year);
     randomQuote += `<span class="year">${num.year}</span>`;
   }
 
@@ -117,6 +108,12 @@ function printQuote() {
 document.getElementById('quote-box').innerHTML = randomQuote ; 
 }
 
+//prints out new quote every 10 seconds
+//https://www.w3schools.com/jsref/met_win_setinterval.asp
+setInterval(() => {
+  printQuote();
+  backgroundColor();
+}, 10000);
 
 /***
  * click event listener for the print quote button
@@ -124,6 +121,7 @@ document.getElementById('quote-box').innerHTML = randomQuote ;
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-document.getElementById('load-quote').addEventListener("click", backgroundColor);
+//randomizes color of body whenever "Show another quote is clicked"
+document.getElementById('load-quote').addEventListener("click", backgroundColor, false);
 
 
