@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 //randomizes color of body
-function backgroundColor () {
+function randomBackgroundColor () {
   let red;
   let green;
   let blue;
@@ -109,7 +109,7 @@ document.getElementById('quote-box').innerHTML = randomQuote ;
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(() => {
   printQuote(); //prints quotes
-  backgroundColor(); //changes background color
+  randomBackgroundColor(); //changes background color
 }, 10000);
 
 /***
@@ -119,6 +119,6 @@ setInterval(() => {
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 //randomizes color of body whenever "Show another quote is clicked"
-document.getElementById('load-quote').addEventListener("click", backgroundColor, false);
+document.getElementById('load-quote').addEventListener("click", randomBackgroundColor, false);
 
 
