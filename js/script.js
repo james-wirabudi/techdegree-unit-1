@@ -44,23 +44,19 @@ const quotes = [
   {
     quote: "He may have been your father, boy, but he wasn't your daddy.",
     source: "Yondu Udonta",
-    citation: /*"Guardians of the Galaxy Vol. 2"*/'',
-    year: 2017,
-    tags: "Action/Sci-fi"
+    citation: "Guardians of the Galaxy Vol. 2",
+    year: 2017
+    //, tags: "Action/Sci-fi"
   },
   {
     quote: "Don’t have a good day- have a GREAT day!",
-    source: "Guy"/*,
-    citation: "Free Guy",
-    year: 2021,
-    tags: "Action/Adventure"*/
+    source: "Guy"
+    //, citation: "Free Guy", year: 2021, tags: "Action/Adventure"
   },
   {
     quote: "Beneath this mask there is more than flesh. Beneath this mask there is an idea. And ideas are are bulletproof.",
-    source: "V"/*,
-    citation: "V for Vendetta",
-    year: 2005,
-    tags: "Action/Thriller"*/
+    source: "V"
+    //, citation: "V for Vendetta", year: 2005, tags: "Action/Thriller"
   }
 ];
 //console.log(quotes);
@@ -80,8 +76,9 @@ function getRandomQuote() {
  * `printQuote` function
 ***/
 function printQuote() {
+  //stores quote object in num
   const num = getRandomQuote();
-  console.log(num);
+  //console.log(num);
 
   let randomQuote = `<p class="quote">${num.quote}</p>
   <p class="source">${num.source}`;
@@ -108,11 +105,11 @@ function printQuote() {
 document.getElementById('quote-box').innerHTML = randomQuote ; 
 }
 
-//prints out new quote every 10 seconds
+//quotes automatically refreshes every 10 seconds
 //https://www.w3schools.com/jsref/met_win_setinterval.asp
 setInterval(() => {
-  printQuote();
-  backgroundColor();
+  printQuote(); //prints quotes
+  backgroundColor(); //changes background color
 }, 10000);
 
 /***
